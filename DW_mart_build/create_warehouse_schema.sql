@@ -1,0 +1,1 @@
+--- step 1 create star schema table for warehouse
