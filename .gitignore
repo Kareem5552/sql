@@ -31,7 +31,3 @@ target/
 .vscode/
 __pycache__/
 
-# Luke's files
-data/
-course_build.sql
-.cursorrules
