@@ -1,29 +1,17 @@
--- step 1 : create star schema tables for warehouse
-
+-- Step 1: DW - Create star schema tables
 .read 01_create_warehouse_schema.sql
 
--- step 2 : load data from CSV files to tables
-
+-- Step 2: DW - Load data from CSV files into tables
 .read 02_load_schema_dw.sql
 
--- row counts
-SELECT 'Company Dim' AS table_name, COUNT(*) AS record_count FROM company_dim
-UNION ALL
-SELECT 'Skills Dim', COUNT(*) FROM skills_dim
-UNION ALL
-SELECT 'Job Postings Fact', COUNT(*) FROM job_postings_fact
-UNION ALL
-SELECT 'Skills Job Dim', COUNT(*) FROM skills_job_dim;
+-- Step 3: Mart - Create flat mart
+.read 03_create_flat_mart.sql
 
--- samples
-SELECT '=== Company Dimension Sample ===' AS info;
-SELECT * FROM company_dim LIMIT 5;
+-- Step 4: Mart - Create skills demand mart
+.read 04_create_skills_mart.sql
 
-SELECT '=== Skills Dimension Sample ===' AS info;
-SELECT * FROM skills_dim LIMIT 5;
+-- Step 5: Mart - Create priority mart
+.read 05_create_priority_mart.sql
 
-SELECT '=== Job Postings Fact Sample ===' AS info;
-SELECT * FROM job_postings_fact LIMIT 5;
-
-SELECT '=== Skills Job Bridge Sample ===' AS info;
-SELECT * FROM skills_job_dim LIMIT 5;
+-- Step 6: Mart - Update priority mart
+.read 06_update_priority_mart.sql
