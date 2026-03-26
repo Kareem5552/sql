@@ -10,3 +10,7 @@
 
 .read 03_create_flat_mart.sql
 
+--- step 4 : create skills mart tables
+
+.read 04_create_skills_mart.sql
+
